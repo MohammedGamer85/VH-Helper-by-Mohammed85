@@ -55,7 +55,27 @@ while (true)
 
             double PickaxeTotalUpgradeDividor = 100 * PickaxeNumberOfUpgrades;
 
-            double PickaxeTotalUpgradeDivided = PickaxeTotalUpgradeDividor - (PickaxeBrackChance * PickaxeNumberOfUpgrades);
+            double PickaxeTotalUpgradeDivided;
+            double TempVar1;
+            double TempVar2 = 100;
+            double TempVar3 = 0;
+            while (true)
+            {
+                int NumberOfTimesRepeted = 0;
+                if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+                {
+                    TempVar1 = TempVar2 - PickaxeBrackChance;
+                    TempVar2 = TempVar1;
+                    TempVar3 = TempVar3 + TempVar1;
+
+                }
+                else
+                {
+                    TempVar3 = TempVar3 + 100;
+                    PickaxeTotalUpgradeDivided = TempVar3;
+                    break;
+                }
+            }
 
             double PickaxeReatchUpgradeChance = PickaxeTotalUpgradeDivided / PickaxeTotalUpgradeDividor;
 
