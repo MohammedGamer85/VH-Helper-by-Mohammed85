@@ -3,11 +3,21 @@
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
+StartFunctions();
+void StartFunctions()
+{
+    ConsoleColor background = Console.BackgroundColor;
+    ConsoleColor foreground = Console.ForegroundColor;
 
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.BackgroundColor = ConsoleColor.Gray;
+
+    Console.Clear();
 
     ModePicker();
-    void ModePicker()
-    {
+}
+void ModePicker()
+{
         Console.WriteLine("=========================================");
         Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
         Console.WriteLine("Pick Mode Between");
@@ -16,20 +26,24 @@ using System.Threading.Channels;
         Console.WriteLine("2-{NON WORKING}Matral Calulator [MC]");
 
         ModeStarter();
-    };
+}
 
-    void ModeStarter()
+void ModeStarter()
+{
+
+    string PickedMode = Console.ReadLine();
+
+    if (PickedMode == "PUCC" || PickedMode == "pucc")
     {
-
-        string PickedMode = Console.ReadLine();
-
-        if (PickedMode == "PUCC")
-
         PickaxeUpgradeChanceCounterMode();
-    
     }
+    if (PickedMode == "MC" || PickedMode == "mc")
+    {
+        Console.WriteLine("NON-Working");
+    }
+}
 
-    void PickaxeUpgradeChanceCounterMode()
+void PickaxeUpgradeChanceCounterMode()
 {
     Console.WriteLine("++++++++++++++++++++++++++");
     Console.WriteLine("Chosse The Type Of Pickaxe");
@@ -43,7 +57,7 @@ using System.Threading.Channels;
     string PickedPickaxe = Console.ReadLine();
     Console.WriteLine("");
     
-    if (PickedPickaxe == "SP")
+    if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
     {
         int PickaxeBrackChance = 10;
 
@@ -78,12 +92,89 @@ using System.Threading.Channels;
 
         double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
 
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = " + PickaxeReatchUpgradeChanceResult + "%");
+        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("With The Max Upgrade Being (20) With [5%]");
+    }
+    if (PickedPickaxe == "VP" || PickedPickaxe == "vp")
+    {
+        int PickaxeBrackChance = 5;
+
+        Console.WriteLine("Please Enter The Number Of Upgrades");
+        float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
+
+        double PickaxeTotalUpgradeDividor = 100 * PickaxeNumberOfUpgrades;
+
+        double PickaxeTotalUpgradeDivided;
+        double TempVar1;
+        double TempVar2 = 100;
+        double TempVar3 = 0;
+        int NumberOfTimesRepeted = 0;
+        while (true)
+        {
+            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            {
+                TempVar1 = TempVar2 - PickaxeBrackChance;
+                TempVar2 = TempVar1;
+                TempVar3 = TempVar3 + TempVar1;
+                NumberOfTimesRepeted++;
+            }
+            else
+            {
+                TempVar3 = TempVar3 + 100;
+                PickaxeTotalUpgradeDivided = TempVar3;
+                break;
+            }
+        }
+
+        double PickaxeReatchUpgradeChance = PickaxeTotalUpgradeDivided / PickaxeTotalUpgradeDividor;
+
+        double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
+
+        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("With The Max Upgrade Being (40) With [2.5%]");
 
     }
-    if (PickedPickaxe == "VP")
+    if (PickedPickaxe == "BCP" || PickedPickaxe == "bcp")
     {
-        int PickaxeBrackChance = 10;
+        int PickaxeBrackChance = 4;
+
+        Console.WriteLine("Please Enter The Number Of Upgrades");
+        float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
+
+        double PickaxeTotalUpgradeDividor = 100 * PickaxeNumberOfUpgrades;
+
+        double PickaxeTotalUpgradeDivided;
+        double TempVar1;
+        double TempVar2 = 100;
+        double TempVar3 = 0;
+        int NumberOfTimesRepeted = 0;
+        while (true)
+        {
+            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            {
+                TempVar1 = TempVar2 - PickaxeBrackChance;
+                TempVar2 = TempVar1;
+                TempVar3 = TempVar3 + TempVar1;
+                NumberOfTimesRepeted++;
+            }
+            else
+            {
+                TempVar3 = TempVar3 + 100;
+                PickaxeTotalUpgradeDivided = TempVar3;
+                break;
+            }
+        }
+
+        double PickaxeReatchUpgradeChance = PickaxeTotalUpgradeDivided / PickaxeTotalUpgradeDividor;
+
+        double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
+
+        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("With The Max Upgrade Being (50) With [2%]");
+    }
+    if (PickedPickaxe == "EP" || PickedPickaxe == "ep")
+    {
+        int PickaxeBrackChance = 3;
 
         Console.WriteLine("Please Enter The Number Of Upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
@@ -117,84 +208,11 @@ using System.Threading.Channels;
         double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
 
         Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = " + PickaxeReatchUpgradeChanceResult + "%");
+        Console.WriteLine("With The Max Upgrade Being (67) With [1%]");
     }
-    if (PickedPickaxe == "BCP")
+    if (PickedPickaxe == "PP" || PickedPickaxe == "pp")
     {
-        int PickaxeBrackChance = 10;
-
-        Console.WriteLine("Please Enter The Number Of Upgrades");
-        float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
-
-        double PickaxeTotalUpgradeDividor = 100 * PickaxeNumberOfUpgrades;
-
-        double PickaxeTotalUpgradeDivided;
-        double TempVar1;
-        double TempVar2 = 100;
-        double TempVar3 = 0;
-        int NumberOfTimesRepeted = 0;
-        while (true)
-        {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
-            {
-                TempVar1 = TempVar2 - PickaxeBrackChance;
-                TempVar2 = TempVar1;
-                TempVar3 = TempVar3 + TempVar1;
-                NumberOfTimesRepeted++;
-            }
-            else
-            {
-                TempVar3 = TempVar3 + 100;
-                PickaxeTotalUpgradeDivided = TempVar3;
-                break;
-            }
-        }
-
-        double PickaxeReatchUpgradeChance = PickaxeTotalUpgradeDivided / PickaxeTotalUpgradeDividor;
-
-        double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
-
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = " + PickaxeReatchUpgradeChanceResult + "%");
-    }
-    if (PickedPickaxe == "EP")
-    {
-        int PickaxeBrackChance = 10;
-
-        Console.WriteLine("Please Enter The Number Of Upgrades");
-        float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
-
-        double PickaxeTotalUpgradeDividor = 100 * PickaxeNumberOfUpgrades;
-
-        double PickaxeTotalUpgradeDivided;
-        double TempVar1;
-        double TempVar2 = 100;
-        double TempVar3 = 0;
-        int NumberOfTimesRepeted = 0;
-        while (true)
-        {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
-            {
-                TempVar1 = TempVar2 - PickaxeBrackChance;
-                TempVar2 = TempVar1;
-                TempVar3 = TempVar3 + TempVar1;
-                NumberOfTimesRepeted++;
-            }
-            else
-            {
-                TempVar3 = TempVar3 + 100;
-                PickaxeTotalUpgradeDivided = TempVar3;
-                break;
-            }
-        }
-
-        double PickaxeReatchUpgradeChance = PickaxeTotalUpgradeDivided / PickaxeTotalUpgradeDividor;
-
-        double PickaxeReatchUpgradeChanceResult = PickaxeReatchUpgradeChance * 100;
-
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = " + PickaxeReatchUpgradeChanceResult + "%");
-    }
-    if (PickedPickaxe == "PP")
-    {
-        int PickaxeBrackChance = 10;
+        int PickaxeBrackChance = 1;
 
         Console.WriteLine("Please Enter The Number Of Upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
