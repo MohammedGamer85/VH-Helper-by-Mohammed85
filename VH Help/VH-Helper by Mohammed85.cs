@@ -23,7 +23,7 @@ void ModePicker()
         Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("=========================================");
         Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
-        Console.WriteLine("Pick Mode Between");
+        Console.WriteLine("Pick a mode");
         Console.WriteLine("=========================================");
         Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
         Console.WriteLine("2-{NON WORKING}Upgrade Matral Cost Calulator [UMCC]");
@@ -50,7 +50,7 @@ void PickaxeUpgradeChanceCounterMode()
 {
     Console.ForegroundColor = ConsoleColor.Black;
     Console.WriteLine("++++++++++++++++++++++++++");
-    Console.WriteLine("Chosse The Type Of Pickaxe");
+    Console.WriteLine("Choose the type of Pickaxe");
     Console.WriteLine("++++++++++++++++++++++++++");
     Console.WriteLine("1-Scrapy Pickaxe [SP]");
     Console.WriteLine("2-Vault Pickaxe [VP]");
@@ -64,31 +64,31 @@ void PickaxeUpgradeChanceCounterMode()
     Console.ForegroundColor = ConsoleColor.DarkYellow;
          if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
     {
-        int PickaxeBrackChance = 10;
+        int PickaxeBreakChance = 10;
 
-        Console.WriteLine("Please Enter The Number Of Upgrades");
+        Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
         double TempVar2 = 100;
         double TempVar3 = 1;
-        int NumberOfTimesRepeted = 0;
+        int NumberOfTimesRepeated = 0;
         while (true)
         {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            if (NumberOfTimesRepeated != (PickaxeNumberOfUpgrades - 1))
             {
-                TempVar1 = TempVar2 - PickaxeBrackChance;
+                TempVar1 = TempVar2 - PickaxeBreakChance;
                 TempVar2 = TempVar1;
                 TempVar3 = TempVar3 * (TempVar1 / 100);
-                NumberOfTimesRepeted++;
+                NumberOfTimesRepeated++;
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 10)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("It Is Imposible For The Pickaxe To Reatch (" + PickaxeNumberOfUpgrades + ") Upgrades Chance = [Imposible]");
-                    Console.WriteLine("With The Max Upgrade Being (9) With [1%]");
-                    RepeatePUCC();
+                    Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
+                    Console.WriteLine("With the max upgrade beeing (9) with [1%]");
+                    RepeatPUCC();
                 }
 
             }
@@ -102,37 +102,37 @@ void PickaxeUpgradeChanceCounterMode()
         double PickaxeReatchUpgradeChanceResult = Math.Ceiling((PickaxeReatchUpgradeChance * 100));
 
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("With The Max Upgrade Being (9) With [1%]");
+        Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("with the max upgrade beeing (9) with [1%]");
 
     }
     if (PickedPickaxe == "VP" || PickedPickaxe == "vp")
     {
-        int PickaxeBrackChance = 5;
+        int PickaxeBreakChance = 5;
 
-        Console.WriteLine("Please Enter The Number Of Upgrades");
+        Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
         double TempVar2 = 100;
         double TempVar3 = 1;
-        int NumberOfTimesRepeted = 0;
+        int NumberOfTimesRepeated = 0;
         while (true)
         {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            if (NumberOfTimesRepeated != (PickaxeNumberOfUpgrades - 1))
             {
-                TempVar1 = TempVar2 - PickaxeBrackChance;
+                TempVar1 = TempVar2 - PickaxeBreakChance;
                 TempVar2 = TempVar1;
                 TempVar3 = TempVar3 * (TempVar1 / 100);
-                NumberOfTimesRepeted++;
+                NumberOfTimesRepeated++;
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 20)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("It Is Imposible For The Pickaxe To Reatch (" + PickaxeNumberOfUpgrades + ") Upgrades Chance = [Imposible]");
-                    Console.WriteLine("With The Max Upgrade Being (19) With [Less Than 1%]");
-                    RepeatePUCC();
+                    Console.WriteLine("It's imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
+                    Console.WriteLine("with the max upgrade beeing (19) with [less than 1%]");
+                    RepeatPUCC();
                 }
 
             }
@@ -146,15 +146,15 @@ void PickaxeUpgradeChanceCounterMode()
         double PickaxeReatchUpgradeChanceResult = Math.Ceiling((PickaxeReatchUpgradeChance * 100));
 
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("With The Max Upgrade Being (19) With [Less Than 1%]");
+        Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("with the max upgrade being (19) with [less than 1%]");
 
     }
     if (PickedPickaxe == "BCP" || PickedPickaxe == "bcp")
     {
         int PickaxeBrackChance = 4;
 
-        Console.WriteLine("Please Enter The Number Of Upgrades");
+        Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
 
         double PickaxeReatchUpgradeChance;
@@ -174,9 +174,9 @@ void PickaxeUpgradeChanceCounterMode()
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 25)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("It Is Imposible For The Pickaxe To Reatch (" + PickaxeNumberOfUpgrades + ") Upgrades Chance = [Imposible]");
-                    Console.WriteLine("With The Max Upgrade Being (24) With [Less Than 1%]");
-                    RepeatePUCC();
+                    Console.WriteLine("It's imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
+                    Console.WriteLine("with the max upgrade beeing (24) with [less than 1%]");
+                    RepeatPUCC();
                 }
 
             }
@@ -190,8 +190,8 @@ void PickaxeUpgradeChanceCounterMode()
         double PickaxeReatchUpgradeChanceResult = Math.Ceiling((PickaxeReatchUpgradeChance * 100));
 
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("The Chance Of The Pickaxe Reatching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("With The Max Upgrade Being (24) With [Less Than 1%]");
+        Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") Upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
+        Console.WriteLine("with the max upgrade beeing (24) with [less than 1%]");
 
     }
     if (PickedPickaxe == "EP" || PickedPickaxe == "ep")
@@ -220,7 +220,7 @@ void PickaxeUpgradeChanceCounterMode()
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("It Is Imposible For The Pickaxe To Reatch (" + PickaxeNumberOfUpgrades + ") Upgrades Chance = [Imposible]");
                     Console.WriteLine("With The Max Upgrade Being (32) With [Less Than 1%]");
-                    RepeatePUCC();
+                    RepeatPUCC();
                 }
 
             }
@@ -264,7 +264,7 @@ void PickaxeUpgradeChanceCounterMode()
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("It Is Imposible For The Pickaxe To Reatch (" + PickaxeNumberOfUpgrades + ") Upgrades Chance = [Imposible]");
                     Console.WriteLine("With The Max Upgrade Being (99) With [Less Than 1%]");
-                    RepeatePUCC();
+                    RepeatPUCC();
                 }
 
             }
@@ -284,9 +284,9 @@ void PickaxeUpgradeChanceCounterMode()
     }
 
     
-    RepeatePUCC();
+    RepeatPUCC();
 
-    void RepeatePUCC()
+    void RepeatPUCC()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("");
