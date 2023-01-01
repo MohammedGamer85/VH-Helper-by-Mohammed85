@@ -26,7 +26,7 @@ void ModePicker()
         Console.WriteLine("Pick Mode Between");
         Console.WriteLine("=========================================");
         Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-        Console.WriteLine("2-{NON WORKING}Matral Calulator [MC]");
+        Console.WriteLine("2-{NON WORKING}Upgrade Matral Cost Calulator [UMCC]");
 
         ModeStarter();
 }
@@ -40,7 +40,7 @@ void ModeStarter()
     {
         PickaxeUpgradeChanceCounterMode();
     }
-    if (PickedMode == "MC" || PickedMode == "mc")
+    if (PickedMode == "UMCC" || PickedMode == "umcc")
     {
         Console.WriteLine("NON-Working");
     }
@@ -62,7 +62,7 @@ void PickaxeUpgradeChanceCounterMode()
     Console.WriteLine("");
 
     Console.ForegroundColor = ConsoleColor.DarkYellow;
-    if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
+         if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
     {
         int PickaxeBrackChance = 10;
 
