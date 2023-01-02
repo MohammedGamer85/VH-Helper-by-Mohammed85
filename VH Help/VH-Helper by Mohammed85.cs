@@ -1,39 +1,40 @@
 ﻿
 
+using System.Diagnostics;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
-
-
+int NumberOfTimesRepeatedWrong = 0;
+int One = 1;
+//StartFunctions///////////////////////////////////////////////////////////////////////
 StartFunctions();
 void StartFunctions()
 {
     ConsoleColor background = Console.BackgroundColor;
     ConsoleColor foreground = Console.ForegroundColor;
 
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.BackgroundColor = ConsoleColor.Black;
 
     Console.Clear();
 
     ModePicker();
 }
 void ModePicker()
-{       
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine("=========================================");
-        Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
-        Console.WriteLine("Pick a mode");
-        Console.WriteLine("=========================================");
-        Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-        Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
+{
+    Console.ForegroundColor = ConsoleColor.DarkYellow;
+    Console.WriteLine("=========================================");
+    Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
+    Console.WriteLine("Pick a mode");
+    Console.WriteLine("=========================================");
+    Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
+    Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
 
-        ModeStarter();
+    ModeStarter();
 }
 
 void ModeStarter()
 {
-
     string PickedMode = Console.ReadLine();
 
     if (PickedMode == "PUCC" || PickedMode == "pucc")
@@ -42,13 +43,27 @@ void ModeStarter()
     }
     if (PickedMode == "TUCC" || PickedMode == "tucc")
     {
-        ToolUpgradeCostCalulator();
+        ToolUpgradeCostCalulatorMode();
+    }
+    else
+    {
+        int Result = WrongInpotRepeat();
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        if (Result == 1)
+        {
+            ModeStarter();
+        }
+        else
+        {
+            EndRepeat();
+            
+        }
     }
 }
-
+//Modes----------------------------------------------------------------------------//
 void PickaxeUpgradeChanceCounterMode()
 {
-    Console.ForegroundColor = ConsoleColor.Black;
+    Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine("++++++++++++++++++++++++++");
     Console.WriteLine("Choose the type of Pickaxe");
     Console.WriteLine("++++++++++++++++++++++++++");
@@ -61,14 +76,14 @@ void PickaxeUpgradeChanceCounterMode()
     string PickedPickaxe = Console.ReadLine();
     Console.WriteLine("");
 
-    Console.ForegroundColor = ConsoleColor.DarkYellow;
+    Console.ForegroundColor = ConsoleColor.DarkBlue;
 
-    int PickaxeBreakChance = 10;
+    int PickaxeBreakChance = 0;
     string MaxUpgradeBeeing;
     string MaxUpgradeChanceBeeing;
 
     if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
-    {   
+    {
 
         PickaxeBreakChance = 10;
         MaxUpgradeBeeing = "9";
@@ -103,12 +118,28 @@ void PickaxeUpgradeChanceCounterMode()
         MaxUpgradeChanceBeeing = "less than 1%";
         PickaxeReachChanceCaluclator();
     }
+    if (PickaxeBreakChance == 0)
+    {
+        int Result = WrongInpotRepeat();
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        if (Result == 1)
+        {
+            PickaxeUpgradeChanceCounterMode();
+        }
+        else
+        {
+            EndRepeat();
+
+        }
+    }
 
 
     void PickaxeReachChanceCaluclator()
+
     {
         Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine();
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
@@ -126,9 +157,9 @@ void PickaxeUpgradeChanceCounterMode()
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 10)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
-                    Console.WriteLine("With the max upgrade beeing ("+ MaxUpgradeBeeing +") with ["+ MaxUpgradeChanceBeeing +"]");
+                    Console.WriteLine("With the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "]");
                     RepeatPUCC();
                 }
 
@@ -142,17 +173,18 @@ void PickaxeUpgradeChanceCounterMode()
 
         double PickaxeReatchUpgradeChanceResult = Math.Ceiling((PickaxeReatchUpgradeChance * 100));
 
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("with the max upgrade beeing ("+ MaxUpgradeBeeing +") with ["+ MaxUpgradeChanceBeeing +"] of happening");
-    }
-}
+        Console.WriteLine("with the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "] of happening");
 
-RepeatPUCC();
+
+    }
+
+    RepeatPUCC();
 
     void RepeatPUCC()
     {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("");
         Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
         string inpot = Console.ReadLine();
@@ -163,12 +195,14 @@ RepeatPUCC();
         }
         if (inpot == "n" || inpot == "N")
         {
-            EndRepete();
+            EndRepeat();
         }
     }
 
+}
 
-void ToolUpgradeCostCalulator()
+
+void ToolUpgradeCostCalulatorMode()
 {
     Console.ForegroundColor = ConsoleColor.Black;
     Console.WriteLine("++++++++++++++++++++++++++");
@@ -179,17 +213,30 @@ void ToolUpgradeCostCalulator()
     //Console.WriteLine("3-");
     //Console.WriteLine("4-");
     //Console.WriteLine("5-");
-    Console.WriteLine("");
-
+    Console.ForegroundColor = ConsoleColor.DarkYellow;
     string inpot = Console.ReadLine();
+    Console.WriteLine("");
 
     if (inpot == "VM" || inpot == "vm")
     {
-        
+
     }
     if (inpot == "VP" || inpot == "vp")
     {
-        
+
+    }
+    else
+    {
+        int Result = WrongInpotRepeat();
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        if (Result == 1)
+        {
+            ToolUpgradeCostCalulatorMode();
+        }
+        else
+        {
+            EndRepeat();
+        }
     }
 
 
@@ -209,12 +256,44 @@ void ToolUpgradeCostCalulator()
         }
         if (inpot == "n" || inpot == "N")
         {
-            EndRepete();
+            EndRepeat();
         }
     }
 }
 
-void EndRepete()
+//Functions==============================================================================//
+
+int WrongInpotRepeat()
+{
+    int RepeatOrStop;
+    int MaxNumberOfWrongRepeats = 4;
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("!Wrong inpot try again![" + NumberOfTimesRepeatedWrong + "/" + (MaxNumberOfWrongRepeats - One) + "]");
+    Console.WriteLine("");
+    NumberOfTimesRepeatedWrong++;
+    if (NumberOfTimesRepeatedWrong != MaxNumberOfWrongRepeats)
+    {
+        return RepeatOrStop = 1;
+
+    }
+    if (NumberOfTimesRepeatedWrong == MaxNumberOfWrongRepeats)
+    {   
+        if (NumberOfTimesRepeatedWrong == MaxNumberOfWrongRepeats)
+        {
+            NumberOfTimesRepeatedWrong = 0;
+        }
+        return RepeatOrStop = 0;
+        
+    }
+    else
+    {
+        return 0;
+    }
+
+    
+}
+//EndFunctions++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+void EndRepeat()
 {
     Console.ForegroundColor = ConsoleColor.DarkRed;
     Console.WriteLine("");
@@ -222,15 +301,17 @@ void EndRepete()
     Console.WriteLine("--Do You Want To Exit Application[Y/N]--");
     string inpot = Console.ReadLine();
 
-    if (inpot == "y" || inpot == "Y")
-    {
-        Environment.Exit(0);
-    }
     if (inpot == "n" || inpot == "N")
     {
         ModePicker();
     }
+    else
+    {
+        Environment.Exit(0);
+    }
 
 }
 
-EndRepete();
+EndRepeat();
+
+
