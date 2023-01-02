@@ -89,6 +89,9 @@ void PickaxeUpgradeChanceCounterMode()
                     Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
                     Console.WriteLine("With the max upgrade beeing (9) with [1%]");
                     RepeatPUCC();
+                    Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades Chance = [Imposible]");
+                    Console.WriteLine("With the max upgrade beeing (9) with [1%] of happening");
+                    RepeatPUCC();
                 }
 
             }
@@ -103,7 +106,7 @@ void PickaxeUpgradeChanceCounterMode()
 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("with the max upgrade beeing (9) with [1%]");
+        Console.WriteLine("with the max upgrade beeing (9) with [1%] of happening");
 
     }
     if (PickedPickaxe == "VP" || PickedPickaxe == "vp")
@@ -161,15 +164,15 @@ void PickaxeUpgradeChanceCounterMode()
         double TempVar1;
         double TempVar2 = 100;
         double TempVar3 = 1;
-        int NumberOfTimesRepeted = 0;
+        int NumberOfTimesRepeated = 0;
         while (true)
         {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            if (NumberOfTimesRepeated != (PickaxeNumberOfUpgrades - 1))
             {
                 TempVar1 = TempVar2 - PickaxeBrackChance;
                 TempVar2 = TempVar1;
                 TempVar3 = TempVar3 * (TempVar1 / 100);
-                NumberOfTimesRepeted++;
+                NumberOfTimesRepeated++;
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 25)
                 {
@@ -198,22 +201,22 @@ void PickaxeUpgradeChanceCounterMode()
     {
         int PickaxeBrackChance = 3;
 
-        Console.WriteLine("Please Enter The Number Of Upgrades");
+        Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
         double TempVar2 = 100;
         double TempVar3 = 1;
-        int NumberOfTimesRepeted = 0;
+        int NumberOfTimesRepeated = 0;
         while (true)
         {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            if (NumberOfTimesRepeated != (PickaxeNumberOfUpgrades - 1))
             {
                 TempVar1 = TempVar2 - PickaxeBrackChance;
                 TempVar2 = TempVar1;
                 TempVar3 = TempVar3 * (TempVar1 / 100);
-                NumberOfTimesRepeted++;
+                NumberOfTimesRepeated++;
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 33)
                 {
@@ -242,22 +245,22 @@ void PickaxeUpgradeChanceCounterMode()
     {
         int PickaxeBrackChance = 1;
 
-        Console.WriteLine("Please Enter The Number Of Upgrades");
+        Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
         double TempVar2 = 100;
         double TempVar3 = 1;
-        int NumberOfTimesRepeted = 0;
+        int NumberOfTimesRepeated = 0;
         while (true)
         {
-            if (NumberOfTimesRepeted != (PickaxeNumberOfUpgrades - 1))
+            if (NumberOfTimesRepeated != (PickaxeNumberOfUpgrades - 1))
             {
                 TempVar1 = TempVar2 - PickaxeBrackChance;
                 TempVar2 = TempVar1;
                 TempVar3 = TempVar3 * (TempVar1 / 100);
-                NumberOfTimesRepeted++;
+                NumberOfTimesRepeated++;
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 100)
                 {
