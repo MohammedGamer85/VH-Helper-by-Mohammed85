@@ -26,7 +26,7 @@ void ModePicker()
         Console.WriteLine("Pick a mode");
         Console.WriteLine("=========================================");
         Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-        Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
+        Console.WriteLine("2-{NON WORKING}Upgrade Matral Cost Calulator [UMCC]");
 
         ModeStarter();
 }
@@ -40,9 +40,9 @@ void ModeStarter()
     {
         PickaxeUpgradeChanceCounterMode();
     }
-    if (PickedMode == "TUCC" || PickedMode == "tucc")
+    if (PickedMode == "UMCC" || PickedMode == "umcc")
     {
-        ToolUpgradeCostCalulator();
+        Console.WriteLine("NON-Working");
     }
 }
 
@@ -62,7 +62,7 @@ void PickaxeUpgradeChanceCounterMode()
     Console.WriteLine("");
 
     Console.ForegroundColor = ConsoleColor.DarkYellow;
-    if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
+         if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
     {
         int PickaxeBreakChance = 10;
 
@@ -303,19 +303,6 @@ void PickaxeUpgradeChanceCounterMode()
         }
     }
 };
-
-void ToolUpgradeCostCalulator()
-{
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.WriteLine("++++++++++++++++++++++++++");
-    Console.WriteLine("Chosse The Type Of Pickaxe");
-    Console.WriteLine("++++++++++++++++++++++++++");
-    Console.WriteLine("1-Scrapy Pickaxe [SP]");
-    Console.WriteLine("2-Vault Pickaxe [VP]");
-    Console.WriteLine("3-Black Chromatic Pickaxe [BCP]");
-    Console.WriteLine("4-Echoing Pickaxe [EP]");
-    Console.WriteLine("5-Prismatic Pickaxe [PP]");
-}
 
 void EndRepete()
 {
