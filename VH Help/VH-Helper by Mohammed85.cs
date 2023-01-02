@@ -167,7 +167,7 @@ RepeatPUCC();
             EndRepete();
         }
     }
-};
+
 
 void ToolUpgradeCostCalulator()
 {
