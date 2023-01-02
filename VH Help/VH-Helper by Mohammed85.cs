@@ -72,38 +72,39 @@ void PickaxeUpgradeChanceCounterMode()
 
         PickaxeBreakChance = 10;
         MaxUpgradeBeeing = "9";
-        MaxUpgradeChanceBeeing = "1%";
-        PickaxeReachChanceCaluclator();
+        MaxUpgradeChanceBeeing = "1%"; 
+
     }
     if (PickedPickaxe == "VP" || PickedPickaxe == "vp")
     {
         PickaxeBreakChance = 5;
         MaxUpgradeBeeing = "19";
         MaxUpgradeChanceBeeing = "less than 1%";
-        PickaxeReachChanceCaluclator();
+
     }
     if (PickedPickaxe == "BCP" || PickedPickaxe == "bcp")
     {
         PickaxeBreakChance = 4;
         MaxUpgradeBeeing = "24";
         MaxUpgradeChanceBeeing = "less than 1%";
-        PickaxeReachChanceCaluclator();
+
     }
     if (PickedPickaxe == "EP" || PickedPickaxe == "ep")
     {
         PickaxeBreakChance = 3;
         MaxUpgradeBeeing = "32";
         MaxUpgradeChanceBeeing = "less than 1%";
-        PickaxeReachChanceCaluclator();
+
     }
     if (PickedPickaxe == "PP" || PickedPickaxe == "pp")
     {
         PickaxeBreakChance = 1;
         MaxUpgradeBeeing = "99";
         MaxUpgradeChanceBeeing = "less than 1%";
-        PickaxeReachChanceCaluclator();
+
     }
 
+    PickaxeReachChanceCaluclator();
 
     void PickaxeReachChanceCaluclator()
     {
