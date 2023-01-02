@@ -13,8 +13,8 @@ void StartFunctions()
     ConsoleColor background = Console.BackgroundColor;
     ConsoleColor foreground = Console.ForegroundColor;
 
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.BackgroundColor = ConsoleColor.Black;
 
     Console.Clear();
 
@@ -22,7 +22,7 @@ void StartFunctions()
 }
 void ModePicker()
 {
-    Console.ForegroundColor = ConsoleColor.DarkBlue;
+    Console.ForegroundColor = ConsoleColor.DarkYellow;
     Console.WriteLine("=========================================");
     Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
     Console.WriteLine("Pick a mode");
@@ -63,7 +63,7 @@ void ModeStarter()
 //Modes----------------------------------------------------------------------------//
 void PickaxeUpgradeChanceCounterMode()
 {
-    Console.ForegroundColor = ConsoleColor.Black;
+    Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine("++++++++++++++++++++++++++");
     Console.WriteLine("Choose the type of Pickaxe");
     Console.WriteLine("++++++++++++++++++++++++++");
@@ -76,9 +76,9 @@ void PickaxeUpgradeChanceCounterMode()
     string PickedPickaxe = Console.ReadLine();
     Console.WriteLine("");
 
-    Console.ForegroundColor = ConsoleColor.DarkYellow;
+    Console.ForegroundColor = ConsoleColor.DarkBlue;
 
-    int PickaxeBreakChance = 10;
+    int PickaxeBreakChance = 0;
     string MaxUpgradeBeeing;
     string MaxUpgradeChanceBeeing;
 
@@ -118,7 +118,7 @@ void PickaxeUpgradeChanceCounterMode()
         MaxUpgradeChanceBeeing = "less than 1%";
         PickaxeReachChanceCaluclator();
     }
-    else
+    if (PickaxeBreakChance == 0)
     {
         int Result = WrongInpotRepeat();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -132,12 +132,14 @@ void PickaxeUpgradeChanceCounterMode()
 
         }
     }
-    RepeatPUCC();
+
 
     void PickaxeReachChanceCaluclator()
+
     {
         Console.WriteLine("Please enter the number of upgrades");
         float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine();
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
@@ -155,7 +157,7 @@ void PickaxeUpgradeChanceCounterMode()
 
                 if (TempVar3 < 0 || TempVar3 == 0 || PickaxeNumberOfUpgrades == 10)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
                     Console.WriteLine("With the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "]");
                     RepeatPUCC();
@@ -171,14 +173,18 @@ void PickaxeUpgradeChanceCounterMode()
 
         double PickaxeReatchUpgradeChanceResult = Math.Ceiling((PickaxeReatchUpgradeChance * 100));
 
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
         Console.WriteLine("with the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "] of happening");
+
+
     }
+
+    RepeatPUCC();
 
     void RepeatPUCC()
     {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("");
         Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
         string inpot = Console.ReadLine();
