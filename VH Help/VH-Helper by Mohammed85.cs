@@ -330,10 +330,10 @@ void ToolUpgradeCostCalulator()
     {
         
     }
-    
 
 
-    RepeateTUCC
+
+    RepeateTUCC();
 
     void RepeateTUCC()
     {
