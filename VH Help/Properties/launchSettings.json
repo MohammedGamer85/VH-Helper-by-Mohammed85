@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "VH Help": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
