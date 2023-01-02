@@ -19,16 +19,16 @@ void StartFunctions()
     ModePicker();
 }
 void ModePicker()
-{       
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine("=========================================");
-        Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
-        Console.WriteLine("Pick a mode");
-        Console.WriteLine("=========================================");
-        Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-        Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
+{
+    Console.ForegroundColor = ConsoleColor.DarkBlue;
+    Console.WriteLine("=========================================");
+    Console.WriteLine("Welcome to VH Helper, by Mohammed85!");
+    Console.WriteLine("Pick a mode");
+    Console.WriteLine("=========================================");
+    Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
+    Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
 
-        ModeStarter();
+    ModeStarter();
 }
 
 void ModeStarter()
@@ -68,43 +68,42 @@ void PickaxeUpgradeChanceCounterMode()
     string MaxUpgradeChanceBeeing;
 
     if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
-    {   
+    {
 
         PickaxeBreakChance = 10;
         MaxUpgradeBeeing = "9";
-        MaxUpgradeChanceBeeing = "1%"; 
-
+        MaxUpgradeChanceBeeing = "1%";
+        PickaxeReachChanceCaluclator();
     }
     if (PickedPickaxe == "VP" || PickedPickaxe == "vp")
     {
         PickaxeBreakChance = 5;
         MaxUpgradeBeeing = "19";
         MaxUpgradeChanceBeeing = "less than 1%";
-
+        PickaxeReachChanceCaluclator();
     }
     if (PickedPickaxe == "BCP" || PickedPickaxe == "bcp")
     {
         PickaxeBreakChance = 4;
         MaxUpgradeBeeing = "24";
         MaxUpgradeChanceBeeing = "less than 1%";
-
+        PickaxeReachChanceCaluclator();
     }
     if (PickedPickaxe == "EP" || PickedPickaxe == "ep")
     {
         PickaxeBreakChance = 3;
         MaxUpgradeBeeing = "32";
         MaxUpgradeChanceBeeing = "less than 1%";
-
+        PickaxeReachChanceCaluclator();
     }
     if (PickedPickaxe == "PP" || PickedPickaxe == "pp")
     {
         PickaxeBreakChance = 1;
         MaxUpgradeBeeing = "99";
         MaxUpgradeChanceBeeing = "less than 1%";
-
+        PickaxeReachChanceCaluclator();
     }
 
-    PickaxeReachChanceCaluclator();
 
     void PickaxeReachChanceCaluclator()
     {
@@ -129,7 +128,7 @@ void PickaxeUpgradeChanceCounterMode()
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("It is imposible for the pickaxe to reach (" + PickaxeNumberOfUpgrades + ") upgrades - Chance = [Impossible]");
-                    Console.WriteLine("With the max upgrade beeing ("+ MaxUpgradeBeeing +") with ["+ MaxUpgradeChanceBeeing +"]");
+                    Console.WriteLine("With the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "]");
                     RepeatPUCC();
                 }
 
@@ -145,28 +144,28 @@ void PickaxeUpgradeChanceCounterMode()
 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("The chance of the pickaxe reaching (" + PickaxeNumberOfUpgrades + ") upgrades = [" + PickaxeReatchUpgradeChanceResult + "%]");
-        Console.WriteLine("with the max upgrade beeing ("+ MaxUpgradeBeeing +") with ["+ MaxUpgradeChanceBeeing +"] of happening");
+        Console.WriteLine("with the max upgrade beeing (" + MaxUpgradeBeeing + ") with [" + MaxUpgradeChanceBeeing + "] of happening");
     }
 }
 
 RepeatPUCC();
 
-    void RepeatPUCC()
-    {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine("");
-        Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
-        string inpot = Console.ReadLine();
+void RepeatPUCC()
+{
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+    Console.WriteLine("");
+    Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
+    string inpot = Console.ReadLine();
 
-        if (inpot == "y" || inpot == "Y")
-        {
-            PickaxeUpgradeChanceCounterMode();
-        }
-        if (inpot == "n" || inpot == "N")
-        {
-            EndRepete();
-        }
+    if (inpot == "y" || inpot == "Y")
+    {
+        PickaxeUpgradeChanceCounterMode();
     }
+    if (inpot == "n" || inpot == "N")
+    {
+        EndRepete();
+    }
+}
 
 
 void ToolUpgradeCostCalulator()
@@ -186,11 +185,11 @@ void ToolUpgradeCostCalulator()
 
     if (inpot == "VM" || inpot == "vm")
     {
-        
+
     }
     if (inpot == "VP" || inpot == "vp")
     {
-        
+
     }
 
 
