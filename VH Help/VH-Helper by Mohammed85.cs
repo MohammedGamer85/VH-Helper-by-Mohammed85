@@ -26,7 +26,7 @@ void ModePicker()
         Console.WriteLine("Pick a mode");
         Console.WriteLine("=========================================");
         Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-        Console.WriteLine("2-{NON WORKING}Upgrade Matral Cost Calulator [UMCC]");
+        Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
 
         ModeStarter();
 }
@@ -40,9 +40,9 @@ void ModeStarter()
     {
         PickaxeUpgradeChanceCounterMode();
     }
-    if (PickedMode == "UMCC" || PickedMode == "umcc")
+    if (PickedMode == "TUCC" || PickedMode == "tucc")
     {
-        Console.WriteLine("NON-Working");
+        ToolUpgradeCostCalulator();
     }
 }
 
@@ -62,7 +62,7 @@ void PickaxeUpgradeChanceCounterMode()
     Console.WriteLine("");
 
     Console.ForegroundColor = ConsoleColor.DarkYellow;
-         if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
+    if (PickedPickaxe == "SP" || PickedPickaxe == "sp")
     {
         int PickaxeBreakChance = 10;
 
@@ -303,6 +303,52 @@ void PickaxeUpgradeChanceCounterMode()
         }
     }
 };
+
+void ToolUpgradeCostCalulator()
+{
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.WriteLine("++++++++++++++++++++++++++");
+    Console.WriteLine("Chosse The Type Of Pickaxe");
+    Console.WriteLine("++++++++++++++++++++++++++");
+    Console.WriteLine("1-Vault Magnet [VM]");
+    Console.WriteLine("2-Vault Pickaxe [VP]");
+    //Console.WriteLine("3-");
+    //Console.WriteLine("4-");
+    //Console.WriteLine("5-");
+    Console.WriteLine("");
+
+    string inpot = Console.ReadLine();
+
+    if (inpot == "VM" || inpot == "vm")
+    {
+        
+    }
+    if (inpot == "VP" || inpot == "vp")
+    {
+        
+    }
+    
+
+
+    RepeateTUCC
+
+    void RepeateTUCC()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.WriteLine("");
+        Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
+        string inpot = Console.ReadLine();
+
+        if (inpot == "y" || inpot == "Y")
+        {
+            PickaxeUpgradeChanceCounterMode();
+        }
+        if (inpot == "n" || inpot == "N")
+        {
+            EndRepete();
+        }
+    }
+}
 
 void EndRepete()
 {
