@@ -31,7 +31,7 @@ void ModePicker()
     Console.WriteLine("Pick a mode");
     Console.WriteLine("=========================================");
     Console.WriteLine("1-Pickaxe Upgrade Chance Counter [PUCC]");
-    Console.WriteLine("2-{NON WORKING}Tool Upgrade Cost Calulator [TUCC]");
+    Console.WriteLine("2-Tool Upgrade Cost Calulator [TUCC]");
 
     ModeStarter();
 }
@@ -209,7 +209,7 @@ void PickaxeUpgradeChanceCounterMode()
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("");
-        Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
+        Console.WriteLine("--Do You Want To Keep Useing The Same Mode (PUCC) [Y/N]--");
         string inpot = Console.ReadLine();
 
         if (inpot == "y" || inpot == "Y")
@@ -224,10 +224,22 @@ void PickaxeUpgradeChanceCounterMode()
         {
             EndRepeat();
         }
+        if (inpot != "n" && inpot != "N" && inpot != "y" && inpot != "Y")
+        {
+            int Result = WrongInpotRepeat();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            if (Result == 1)
+            {
+                RepeatPUCC();
+            }
+            else
+            {
+                EndRepeat();
+            }
+        }
     }
 
 }
-
 
 void ToolUpgradeCostCalulatorMode()
 {
@@ -244,8 +256,10 @@ void ToolUpgradeCostCalulatorMode()
     string inpot = Console.ReadLine();
     Console.WriteLine("");
 
-    string NameOfUpgrade = "0";
-    int NumberOfUpgrades = 0;
+    int NumberOfUpgradesDuribility = 0;
+    int NumberOfUpgradesReach = 0;
+    int NumberOfUpgradesSpeed = 0;
+    int NumberOfUpgradesCopiously = 0;
     int AmountOfVaultBronze = 0;
     int AmountOfVaultPlating = 0;
     int AmountOfRedVaultEssense = 0;
@@ -297,8 +311,8 @@ void ToolUpgradeCostCalulatorMode()
 
         if (PVNumberOfDuribilityUpgrades > 0)
         {
-            NameOfUpgrade = "DuribilityUpgrades";
-            NumberOfUpgrades = PVNumberOfDuribilityUpgrades;
+
+            NumberOfUpgradesDuribility = PVNumberOfDuribilityUpgrades;
             AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 8;
             AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 8;
             AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 4;
@@ -306,8 +320,8 @@ void ToolUpgradeCostCalulatorMode()
         }
         if (PVNumberOfReachUpgrades > 0)
         {
-            NameOfUpgrade = "ReachUpgrades";
-            NumberOfUpgrades = PVNumberOfReachUpgrades;
+
+            NumberOfUpgradesReach = PVNumberOfReachUpgrades;
             AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfReachUpgrades * 8;
             AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfReachUpgrades * 4;
             AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfReachUpgrades * 2;
@@ -316,8 +330,8 @@ void ToolUpgradeCostCalulatorMode()
         }
         if (PVNumberOfSpeedUpgrades > 0)
         {
-            NameOfUpgrade = "SpeedUpgrades";
-            NumberOfUpgrades = PVNumberOfSpeedUpgrades;
+
+            NumberOfUpgradesSpeed = PVNumberOfSpeedUpgrades;
             AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
             AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
             AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 1;
@@ -326,8 +340,8 @@ void ToolUpgradeCostCalulatorMode()
         }
         if (PVNumberOfCopiouslyUpgrades > 0)
         {
-            NameOfUpgrade = "CopiouslyUpgrades";
-            NumberOfUpgrades = PVNumberOfCopiouslyUpgrades;
+
+            NumberOfUpgradesCopiously = PVNumberOfCopiouslyUpgrades;
             AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
             AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
             AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 4;
@@ -389,24 +403,81 @@ void ToolUpgradeCostCalulatorMode()
             Console.WriteLine(AmountOfMagnitieIngot + " Magnitie Ingot");
         }
         Console.WriteLine("================================");
-        Console.WriteLine("For you to craft (" + NumberOfUpgrades + ") of [" + NameOfUpgrade + "]");
-        RepeateTUCC();
+        if (NumberOfUpgradesDuribility > 0)
+        {
+            Console.WriteLine("For you to craft (" + NumberOfUpgradesDuribility + ") of [DurtibilityUpgrades]");
+        }
+        if (NumberOfUpgradesReach > 0)
+        {
+            Console.WriteLine("For you to craft (" + NumberOfUpgradesReach + ") of [ReachUpgrades]");
+        }
+        if (NumberOfUpgradesSpeed > 0)
+        {
+            Console.WriteLine("For you to craft (" + NumberOfUpgradesSpeed + ") of [SpeedUpgrades]");
+        }
+        if (NumberOfUpgradesCopiously > 0)
+        {
+            Console.WriteLine("For you to craft (" + NumberOfUpgradesCopiously + ") of [CopiouslyUpgrades]");
+        }
+
+        void SwitchMode()
+        {
+            Console.WriteLine("Do you want to know the chance of you getting the upgrades on a pickaxe");
+            string inpot = Console.ReadLine();
+
+            if (inpot == "y" || inpot == "Y")
+            {
+                PickaxeUpgradeChanceCounterMode();
+            }
+            if (inpot == "n" || inpot == "N")
+            {
+                EndRepeat();
+            }
+            if (inpot != "n" && inpot != "N" && inpot != "y" && inpot != "Y")
+            {
+                int Result = WrongInpotRepeat();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                if (Result == 1)
+                {
+                    SwitchMode();
+                }
+                else
+                {
+                    EndRepeat();
+                }
+            }
+        }
+
+        RepeatTUCC();
     }
 
-    void RepeateTUCC()
+    void RepeatTUCC()
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("");
-        Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
+        Console.WriteLine("--Do You Want To Keep Useing The Same Mode (TUCC) [Y/N]--");
         string inpot = Console.ReadLine();
 
         if (inpot == "y" || inpot == "Y")
         {
-            PickaxeUpgradeChanceCounterMode();
+            ToolUpgradeCostCalulatorMode();
         }
         if (inpot == "n" || inpot == "N")
         {
             EndRepeat();
+        }
+        if (inpot != "n" && inpot != "N" && inpot != "y" && inpot != "Y")
+        {
+            int Result = WrongInpotRepeat();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            if (Result == 1)
+            {
+                RepeatTUCC();
+            }
+            else
+            {
+                EndRepeat();
+            }
         }
     }
 }
