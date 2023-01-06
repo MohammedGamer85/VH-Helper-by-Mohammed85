@@ -1,5 +1,6 @@
 ﻿
 
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
@@ -17,6 +18,8 @@ void StartFunctions()
     Console.BackgroundColor = ConsoleColor.Black;
 
     Console.Clear();
+
+    Console.WriteLine("!!You can quite the app at any time by clicking [Enter] 5 times!!");
 
     ModePicker();
 }
@@ -137,9 +140,29 @@ void PickaxeUpgradeChanceCounterMode()
     void PickaxeReachChanceCaluclator()
 
     {
+        float PickaxeNumberOfUpgrades =0;
         Console.WriteLine("Please enter the number of upgrades");
-        float PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine();
+        try
+        {
+            PickaxeNumberOfUpgrades = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+        }
+        catch (Exception)
+        {
+            int Result = WrongInpotRepeat();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            if (Result == 1)
+            {
+                PickaxeReachChanceCaluclator();
+                
+            }
+            else
+            {
+                EndRepeat();
+                
+            }
+        }
 
         double PickaxeReatchUpgradeChance;
         double TempVar1;
@@ -197,6 +220,10 @@ void PickaxeUpgradeChanceCounterMode()
         {
             EndRepeat();
         }
+        else
+        {
+            EndRepeat();
+        }
     }
 
 }
@@ -204,7 +231,7 @@ void PickaxeUpgradeChanceCounterMode()
 
 void ToolUpgradeCostCalulatorMode()
 {
-    Console.ForegroundColor = ConsoleColor.Black;
+    Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine("++++++++++++++++++++++++++");
     Console.WriteLine("Chosse The Type Of Pickaxe");
     Console.WriteLine("++++++++++++++++++++++++++");
@@ -213,19 +240,106 @@ void ToolUpgradeCostCalulatorMode()
     //Console.WriteLine("3-");
     //Console.WriteLine("4-");
     //Console.WriteLine("5-");
-    Console.ForegroundColor = ConsoleColor.DarkYellow;
+
     string inpot = Console.ReadLine();
     Console.WriteLine("");
 
+    string NameOfUpgrade = "0";
+    int NumberOfUpgrades = 0;
+    int AmountOfVaultBronze = 0;
+    int AmountOfVaultPlating = 0;
+    int AmountOfRedVaultEssense = 0;
+    int AmountOfChromaticSteel = 0;
+    int AmountOfSilverScrap = 0;
+    int AmountOfNetheritScrap = 0;
+    int AmountOfMagnitieIngot = 0;
+        
     if (inpot == "VM" || inpot == "vm")
     {
 
     }
     if (inpot == "VP" || inpot == "vp")
     {
+        int PVNumberOfDuribilityUpgrades = 0;
+        int PVNumberOfReachUpgrades = 0;
+        int PVNumberOfSpeedUpgrades = 0;
+        int PVNumberOfCopiouslyUpgrades = 0;
+
+        try
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+
+            Console.WriteLine("Enter number of duribility upgrades");
+            PVNumberOfDuribilityUpgrades = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter number of reach upgrades");
+            PVNumberOfReachUpgrades = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter number of speed upgrades");
+            PVNumberOfSpeedUpgrades = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter number of copiously upgrades");
+            PVNumberOfCopiouslyUpgrades = Convert.ToInt32(Console.ReadLine());
+        }
+        catch (Exception)
+        {
+            int Result = WrongInpotRepeat();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            if (Result == 1)
+            {
+                ToolUpgradeCostCalulatorMode();
+            }
+            else
+            {
+                EndRepeat();
+            }
+        }
+
+        if (PVNumberOfDuribilityUpgrades > 0)
+        {
+            NameOfUpgrade = "DuribilityUpgrades";
+            NumberOfUpgrades = PVNumberOfDuribilityUpgrades;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 8;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 8;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 4;
+            AmountOfNetheritScrap = AmountOfNetheritScrap + PVNumberOfDuribilityUpgrades * 2;
+        }
+        if (PVNumberOfReachUpgrades > 0)
+        {
+            NameOfUpgrade = "ReachUpgrades";
+            NumberOfUpgrades = PVNumberOfReachUpgrades;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfReachUpgrades * 8;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfReachUpgrades * 4;
+            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfReachUpgrades * 2;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfReachUpgrades * 6;
+            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfReachUpgrades * 4;
+        }
+        if (PVNumberOfSpeedUpgrades > 0)
+        {
+            NameOfUpgrade = "SpeedUpgrades";
+            NumberOfUpgrades = PVNumberOfSpeedUpgrades;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
+            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 1;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 6;
+            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfDuribilityUpgrades * 2;
+        }
+        if (PVNumberOfCopiouslyUpgrades > 0)
+        {
+            NameOfUpgrade = "CopiouslyUpgrades";
+            NumberOfUpgrades = PVNumberOfCopiouslyUpgrades;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
+            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 4;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 6;
+            AmountOfNetheritScrap = AmountOfNetheritScrap + PVNumberOfCopiouslyUpgrades * 4;
+            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfDuribilityUpgrades * 16;
+        }
+
+        ResultTUCC();
 
     }
-    else
+    if (inpot != "VM" && inpot != "vm" && inpot != "VP" && inpot != "vp")
     {
         int Result = WrongInpotRepeat();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -239,13 +353,49 @@ void ToolUpgradeCostCalulatorMode()
         }
     }
 
+    void ResultTUCC()
+    {
 
-
-    RepeateTUCC();
+        Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.WriteLine("It will cost you");
+        Console.WriteLine("================================");
+        if (AmountOfVaultBronze > 0)
+        {
+            Console.WriteLine(AmountOfVaultBronze + " Vault Bronze");
+        }
+        if (AmountOfVaultPlating > 0)
+        {
+            Console.WriteLine(AmountOfVaultPlating + " Vault Plating");
+        }
+        if (AmountOfRedVaultEssense > 0)
+        {
+            Console.WriteLine(AmountOfRedVaultEssense + " Red Vault Essense");
+        }
+        if (AmountOfChromaticSteel > 0)
+        {
+            Console.WriteLine(AmountOfChromaticSteel + " Chromatic Steel");
+        }
+        if (AmountOfSilverScrap > 0)
+        {
+            Console.WriteLine(AmountOfSilverScrap + " Silver Scrap");
+        }
+        if (AmountOfNetheritScrap > 0)
+        {
+            Console.WriteLine(AmountOfNetheritScrap + " Netherit Scrap");
+        }
+        if (AmountOfMagnitieIngot > 0)
+        {
+            Console.WriteLine(AmountOfMagnitieIngot + " Magnitie Ingot");
+        }
+        Console.WriteLine("================================");
+        Console.WriteLine("For you to craft (" + NumberOfUpgrades + ") of [" + NameOfUpgrade + "]");
+        RepeateTUCC();
+    }
 
     void RepeateTUCC()
     {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("");
         Console.WriteLine("--Do You Want To Keep Useing The Same Mode [Y/N]--");
         string inpot = Console.ReadLine();
@@ -265,7 +415,6 @@ void ToolUpgradeCostCalulatorMode()
 
 int WrongInpotRepeat()
 {
-    int RepeatOrStop;
     int MaxNumberOfWrongRepeats = 4;
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("!Wrong inpot try again![" + NumberOfTimesRepeatedWrong + "/" + (MaxNumberOfWrongRepeats - One) + "]");
@@ -273,16 +422,18 @@ int WrongInpotRepeat()
     NumberOfTimesRepeatedWrong++;
     if (NumberOfTimesRepeatedWrong != MaxNumberOfWrongRepeats)
     {
-        return RepeatOrStop = 1;
+        int RepeatOrStop =1;
+        return RepeatOrStop;
 
     }
     if (NumberOfTimesRepeatedWrong == MaxNumberOfWrongRepeats)
-    {   
+    {
         if (NumberOfTimesRepeatedWrong == MaxNumberOfWrongRepeats)
         {
             NumberOfTimesRepeatedWrong = 0;
         }
-        return RepeatOrStop = 0;
+        int RepeatOrStop =0;
+        return RepeatOrStop;
         
     }
     else
