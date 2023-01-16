@@ -48,7 +48,7 @@ void ModeStarter()
     {
         ToolUpgradeCostCalulatorMode();
     }
-    else
+    if (PickedMode != "TUCC" && PickedMode != "tucc" && PickedMode != "PUCC" && PickedMode != "pucc")
     {
         int Result = WrongInpotRepeat();
         Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -140,7 +140,7 @@ void PickaxeUpgradeChanceCounterMode()
     void PickaxeReachChanceCaluclator()
 
     {
-        float PickaxeNumberOfUpgrades =0;
+        float PickaxeNumberOfUpgrades = 0;
         Console.WriteLine("Please enter the number of upgrades");
         try
         {
@@ -332,28 +332,28 @@ void ToolUpgradeCostCalulatorMode()
         {
 
             NumberOfUpgradesSpeed = PVNumberOfSpeedUpgrades;
-            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
-            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
-            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 1;
-            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 6;
-            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfDuribilityUpgrades * 2;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfSpeedUpgrades * 16;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfSpeedUpgrades * 4;
+            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfSpeedUpgrades * 1;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfSpeedUpgrades * 6;
+            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfSpeedUpgrades * 2;
         }
         if (PVNumberOfCopiouslyUpgrades > 0)
         {
 
             NumberOfUpgradesCopiously = PVNumberOfCopiouslyUpgrades;
-            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfDuribilityUpgrades * 16;
-            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfDuribilityUpgrades * 4;
-            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfDuribilityUpgrades * 4;
-            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfDuribilityUpgrades * 6;
+            AmountOfVaultBronze = AmountOfVaultBronze + PVNumberOfCopiouslyUpgrades * 16;
+            AmountOfVaultPlating = AmountOfVaultPlating + PVNumberOfCopiouslyUpgrades * 4;
+            AmountOfRedVaultEssense = AmountOfRedVaultEssense + PVNumberOfCopiouslyUpgrades * 4;
+            AmountOfChromaticSteel = AmountOfChromaticSteel + PVNumberOfCopiouslyUpgrades * 6;
             AmountOfNetheritScrap = AmountOfNetheritScrap + PVNumberOfCopiouslyUpgrades * 4;
-            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfDuribilityUpgrades * 16;
+            AmountOfSilverScrap = AmountOfSilverScrap + PVNumberOfCopiouslyUpgrades * 16;
         }
 
         ResultTUCC();
 
     }
-    if (inpot != "VM" && inpot != "vm" && inpot != "VP" && inpot != "vp")
+    if (inpot != "Vm" && inpot != "vm" && inpot != "VP" && inpot != "vp")
     {
         int Result = WrongInpotRepeat();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
